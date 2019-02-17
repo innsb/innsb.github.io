@@ -72,4 +72,45 @@ li {
 a {
   color: #42b983;
 }
+/*   main.css  */
+body {
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #444;
+}
+#demo {
+ max-width: 400px;
+  width: 400px;
+}
+#divBtn {
+  /* display: block; */
+  /* flex-flow: row wrap; */
+  justify-items : center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+#btn10 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-items : center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  /* width: 330px; */
+  /* height: 250px; */
+  padding: 1;
+  margin: auto;
+  /* position: relative; */
+
+}
+@media (max-width: 330px) {
+  #btn10 {
+    padding: 0;
+  }
+}
+
+
 </style>
