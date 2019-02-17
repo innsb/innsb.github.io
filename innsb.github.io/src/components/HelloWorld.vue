@@ -1,33 +1,49 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa" target="_blank" rel="noopener">pwa</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    
+    
+      <div class="container justify-content-center">
+    <div id="demo" class="row justify-content-center w-50 m-auto">
+      <div class="column justify-content-center" id="divBtn">
+        <!-- Table visibility switch -->
+        <div class="custom-control custom-switch d-flex justify-content-center">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1" v-on:click="showTbl = !showTbl">
+          <label class="custom-control-label" for="customSwitch1">Вкл/Выкл всю таблицу</label>
+          <!-- Table visibility switch -->
+        </div><br>
+        <div class="col-lg-6 " id="btn10">
+          <button class="btn btn-success m-1" @click="append('1')">1</button>
+          <button class="btn btn-success m-1" @click="append('2')">2</button>
+          <button class="btn btn-success m-1" @click="append('3')">3</button>
+          <button class="btn btn-success m-1" @click="append('4')">4</button>
+          <button class="btn btn-success m-1" @click="append('5')">5</button>
+          <button class="btn btn-success m-1" @click="append('6')">6</button>
+          <button class="btn btn-success m-1" @click="append('7')">7</button>
+          <button class="btn btn-success m-1" @click="append('8')">8</button>
+          <button class="btn btn-success m-1" @click="append('9')">9</button>
+          <button class="btn btn-success m-1" @click="append('0')">0</button>
+        </div>
+      </div>
+      <div id="divInput" class="m-2 form-group w-auto position-relative">
+        <form id="search">
+          <label class="" for=""></label>
+          <div class="input-group">
+            <input name="query" v-model="searchQuery" class="form-control" placeholder="ИНН">
+            <div class="btn btn-success input-group-append" @click="clear()">X</div>
+          </div>
+          <small id="" class="form-text text-muted">Введите первые 2 цифры</small>
+        </form>
+        <div>
+        </div>
+      </div>
+      <!-- Grid Table -->
+      <demo-grid v-if="showTbl || isSearchQuery" class="m-2" :data="gridData" :columns="gridColumns" :filter-key="searchQuery">
+      </demo-grid>
+      <!-- Grid Table -->
+    </div>
+  </div>
+
+
   </div>
 </template>
 
